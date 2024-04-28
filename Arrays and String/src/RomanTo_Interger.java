@@ -1,0 +1,30 @@
+public class RomanTo_Interger {
+    public static void main(String[] args) {
+        String s ="MCMXCIV";
+        int ans = romanToInt(s);
+        System.out.println(ans);
+    }
+
+    public static int romanToInt(String s){
+        int ans = 0;
+        int num = 0;
+
+        for (int i = s.length()-1; i >= 0; i--) {
+            switch (s.charAt(i)){
+                case 'I': num = 1; break;
+                case 'V': num = 5; break;
+                case 'X': num = 10; break;
+                case 'L': num = 15; break;
+                case 'C': num = 100; break;
+                case 'D': num = 500; break;
+                case 'M': num = 1000; break;
+            }
+            if (4 * num < ans){
+                ans = ans - num;
+            }else {
+                ans = ans + num;
+            }
+        }
+        return ans;
+    }
+}
